@@ -1,0 +1,64 @@
+import java.io.*;
+interface Emp1
+{
+	final String code = "E0001";
+	final String name = "Anil";
+	final String design = "Manager";
+	void display();
+}
+interface Empdetails
+{
+	final String actno = "12345678";
+	final String doj = "28 July 2000";
+	final double basic =50000;
+	void display1();
+}
+interface Earns extends Emp1,Empdetails
+{
+	final double pf = 12;
+	final double lic = 150;
+	final double tax = 15;
+	void calculate();
+	void display2();
+}
+class Employee implements Earns
+{
+	double tpf,ttax;
+	public void display()
+	{
+		System.out.println("Emp code is :" +code);
+		System.out.println("Emp name is :" +name);
+		System.out.println("Emp Designation :" +design);
+	}
+	public void display1()
+	{
+		System.out.println("Account no is :" +actno);
+		System.out.println("Date of Joining is :" +doj);
+		System.out.println("Basic is :" +basic);
+	}
+	public void calculate()
+	{
+		tpf = (basic*pf)/100;
+		ttax = (basic*tax)/100;
+	}
+	public void display2()
+	{
+		System.out.println("Total PF :" +tpf);
+		System.out.println("Total Tax :" +ttax);
+		System.out.println("LIC :" +lic);
+	}
+}
+class Payslip
+{
+	public static void main(String args[])throws IOException
+	{
+		Employee obj = new Employee();
+		System.out.println("\n*****PAYSLIP*****");
+		System.out.println("-----------------");
+		obj.display();
+		obj.display1();
+		obj.calculate();
+		obj.display2();
+		System.out.println("-----------------");
+	}
+}
