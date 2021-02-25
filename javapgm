@@ -18,7 +18,7 @@ interface Earns extends Emp1,Empdetails
 	final double pf = 12;
 	final double lic = 150;
 	final double tax = 15;
-	void calculate();
+	
 	void display2();
 }
 class Employee implements Earns
